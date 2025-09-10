@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, Typography } from "@mui/material"
+import { Box, Button, Card, CardContent, Typography, Grid } from "@mui/material"
 import type { FC } from "react"
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import '../App.css'
@@ -26,7 +26,7 @@ const Home: FC = () => {
 
             </Box>
             {/* Carousel */}
-            <Card className="grid grid-cols-2">
+            <Card className="grid grid-cols-2 border-2 shadow-none">
                 <Box className="relative h-[360px]">
                     <Box className="bg-red-300 h-full"></Box>
                     <Box
@@ -45,12 +45,52 @@ const Home: FC = () => {
                 </Box>
 
                 {/* Card Description */}
-                <CardContent>
-                    <Typography className="text-xl font-serif">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, quos, voluptates laudantium maiores nihil sapiente, consequatur blanditiis ipsum illum ex nam. Rem eveniet error, accusantium doloremque unde perferendis ut inventore!
+                <CardContent className="relative">
+                    <Typography className="text-xl font-serif line-clamp-4">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, quos.
                     </Typography>
+                    <Typography className="text-lg font-serif line-clamp-4">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, quos
+                    </Typography>
+
+
+                    <Box className="absolute bottom-2">
+                        <Typography className="text-lg font-serif line-clamp-4">
+                            Source: ABC NEWS
+                        </Typography>
+                        <Typography className="text-lg font-serif line-clamp-4">
+                            Date : 10/09/2025
+                        </Typography>
+                    </Box>
                 </CardContent>
-            </Card >
+            </Card>
+
+            {/* CarouselList */}
+            <Box className="grid grid-cols-5 gap-3 mt-8">
+                {
+                    [...Array(5)].map((item, index) => (
+                        <Grid key={index}>
+                            <Card className="relative h-[200px]">
+                                <Box className="bg-red-300 h-full w-full aspect-[16/10]"></Box>
+                                <Box
+                                    className="_carouselGradient"
+                                    sx={{
+                                        position: "absolute", bottom: 0,
+                                        height: "70px", width: '100%'
+                                    }} />
+                                < Typography
+                                    className="absolute bottom-2 text-white text-[17px] line-clamp-3 px-3"
+                                    sx={{ fontFamily: "serif" }} >
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                </Typography>
+                            </Card>
+                        </Grid>
+
+                    ))
+                }
+            </Box>
         </Box >
     )
 }
