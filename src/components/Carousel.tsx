@@ -9,7 +9,7 @@ const Carousel: FC = () => {
     return (
         <Box>
             {/* Header Section */}
-            <HeaderSection />
+            <HeaderSection title="Top Headlines" />
             {/* Carousel */}
             <CarouselCard />
 
